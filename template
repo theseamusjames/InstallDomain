@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    ServerAdmin info@{{domain}}  
+    DocumentRoot "/var/www/{{domain}}"
+    ServerName {{domain}}
+    ServerAlias www.{{domain}}
+    ErrorLog "/var/log/apache2/{{domain}}_error_log"
+    CustomLog "/var/log/apache2/{{domain}}_access_log" common
+    <Directory "/var/www/{{domain}}">
+        Options +All
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
